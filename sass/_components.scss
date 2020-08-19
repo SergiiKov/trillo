@@ -1,18 +1,30 @@
-.logo{
+////////////////////////////////////////
+// LOGO
+.logo {
     height: 3.25rem;
     margin-left: 2rem;
 }
 
-.search{
-    flex:0 0 40%;
+
+////////////////////////////////////////
+// SEARCH
+.search {
+    flex: 0 0 40%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    &__input{
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__input {
         font-family: inherit;
         font-size: inherit;
+        color: inherit;
         background-color: var(--color-grey-light-2);
         border: none;
         padding: .7rem 2rem;
@@ -21,43 +33,48 @@
         transition: all .2s;
         margin-right: -3.25rem;
 
-        &:focus{
+        &:focus {
             outline: none;
             width: 100%;
             background-color: var(--color-grey-light-3);
         }
 
-        &::-webkit-input-placeholder{
+        &::-webkit-input-placeholder {
             font-weight: 100;
             color: var(--color-grey-light-4);
         }
     }
 
-    &__input:focus + &__button{
+    &__input:focus + &__button {
         background-color: var(--color-grey-light-3);
     }
 
-    &__button{
+    &__button {
         border: none;
         background-color: var(--color-grey-light-2);
 
-        &:focus{
+        &:focus {
             outline: none;
         }
-        &:active{
-           transform: translateY(2px);
-        }
 
+        &:active {
+            transform: translateY(2px);
+        }
     }
-    &__icon{
+
+    &__icon {
         height: 2rem;
         width: 2rem;
         fill: var(--color-grey-dark-3);
     }
 }
 
-.user-nav{
+
+////////////////////////////////////////
+// USER NAVIGATION
+.user-nav {
     align-self: stretch;
+    
     display: flex;
     align-items: center;
 
@@ -73,19 +90,17 @@
         background-color: var(--color-grey-light-2);
     }
 
-
-    &__icon-box{
-        position: relative; 
-
-
+    &__icon-box {
+        position: relative;
     }
-    &__icon{
+
+    &__icon {
         height: 2.25rem;
         width: 2.25rem;
         fill: var(--color-grey-dark-2);
-        
     }
-    &__notification{
+
+    &__notification {
         font-size: .8rem;
         height: 1.75rem;
         width: 1.75rem;
@@ -95,23 +110,32 @@
         position: absolute;
         top: 1.5rem;
         right: 1.1rem;
+
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    &__user-photo{
+    &__user-photo {
         height: 3.75rem;
         border-radius: 50%;
         margin-right: 1rem;
-
     }
+
 }
 
+
+////////////////////////////////////////
+// SIDE NAVIGATION
 .side-nav {
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
 
     &__item {
         position: relative;
@@ -119,6 +143,13 @@
         &:not(:last-child) {
             margin-bottom: .5rem;
 
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0;
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;
         }
     }
 
@@ -159,6 +190,15 @@
         display: flex;
         align-items: center;
 
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
     }
 
     &__icon {
@@ -167,65 +207,85 @@
         margin-right: 2rem;
         fill: currentColor;
 
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
 
-
+////////////////////////////////////////
+// LEGAL TEXT
 .legal {
     font-size: 1.2rem;
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
-.gallery{
-    display: flex;
-    &__item{
 
-    }
-    &__photo{
+////////////////////////////////////////
+// GALLERY
+.gallery {
+    display: flex;
+
+    &__photo {
         width: 100%;
         display: block;
     }
 }
 
-.overview{
 
+////////////////////////////////////////
+// HOTEL OVERVIEW
+.overview {
     display: flex;
     align-items: center;
-    border-bottom:1px solid var(--color-grey-light-2) ;
+    border-bottom: var(--line);
 
-
-    &__heading{
+    &__heading {
         font-size: 2.25rem;
         font-weight: 300;
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
-    &__stars{
+
+    &__stars {
         margin-right: auto;
         display: flex;
     }
 
     &__icon-star,
-    &__icon-location{
+    &__icon-location {
         width: 1.75rem;
         height: 1.75rem;
         fill: var(--color-primary);
     }
-    &__location{
+
+    &__location {
         font-size: 1.2rem;
         display: flex;
         vertical-align: center;
     }
 
-    &__icon-location{
+    &__icon-location {
         margin-right: .5rem;
     }
 
-    &__rating{
+    &__rating {
         background-color: var(--color-primary);
         color: #fff;
         margin-left: 3rem;
@@ -236,23 +296,39 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
-    &__rating-average{
+    &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
-    &__rating-count{
+    &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
     }
 }
 
-.btn-inline{
+
+
+////////////////////////////////////////
+// BUTTON INLINE
+.btn-inline {
     border: none;
-    color: var( --color-primary);
+    color: var(--color-primary);
     font-size: inherit;
     border-bottom: 1px solid currentColor;
     padding-bottom: 2px;
@@ -261,40 +337,52 @@
     cursor: pointer;
     transition: all .2s;
 
-    &:hover{
-        color: var(--color-grey-dark-1);
+    & span {
+        margin-left: 3px;
+        transition: margin-left .2s;
     }
 
-    &:focus{
+    &:hover {
+        color: var(--color-grey-dark-1);
+
+        span {
+            margin-left: 8px;
+        }
+    }
+
+    &:focus {
         outline: none;
         animation: pulsate 1s infinite;
     }
 }
 
 @keyframes pulsate {
-    0%{
+    0% {
         transform: scale(1);
         box-shadow: none;
     }
 
-    50%{
+    50% {
         transform: scale(1.05);
-        box-shadow: 0 1rem 4rem rgba( 0, 0, 0, .25);
+        box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
     }
 
-    100%{
+    100% {
         transform: scale(1);
         box-shadow: none;
     }
 }
 
-
+////////////////////////////////////////
+// PARAGRAPH
 .paragraph:not(:last-of-type) {
     margin-bottom: 2rem;
 }
 
 
 
+////////////////////////////////////////
+// LIST
 .list {
     list-style: none;
     margin: 3rem 0;
@@ -334,6 +422,10 @@
     }
 }
 
+
+
+////////////////////////////////////////
+// RECOMMEND
 .recommend {
     font-size: 1.3rem;
     color: var(--color-grey-dark-3);
@@ -362,6 +454,9 @@
     }
 }
 
+
+////////////////////////////////////////
+// REVIEWS
 .review {
     background-color: #fff;
     box-shadow: var(--shadow-light);
@@ -370,6 +465,10 @@
     position: relative;
     overflow: hidden;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -424,10 +523,16 @@
     }
 }
 
+
+////////////////////////////////////////
+// CALL TO ACTION
 .cta {
     padding: 3.5rem 0;
     text-align: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;
@@ -438,6 +543,8 @@
 }
 
 
+////////////////////////////////////////
+// CALL TO ACTION
 .btn {
     font-size: 1.5rem;
     font-weight: 300;
@@ -449,7 +556,6 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-
 
     & > * {
         display: inline-block;
